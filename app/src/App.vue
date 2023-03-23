@@ -1,4 +1,19 @@
-<template>Hello</template>
+<template>
+  <div class="container">
+    <div class="rows">
+      <ul>
+        <li>name</li>
+        <li>current course</li>
+        <li>difference</li>
+      </ul>
+      <ul>
+        <li>name</li>
+        <li>current course</li>
+        <li>difference</li>
+      </ul>
+    </div>
+  </div>
+</template>
 
 <script>
 export default {
@@ -6,4 +21,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style src="./style.css"></style>
