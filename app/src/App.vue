@@ -21,6 +21,26 @@ export default {
       ],
     };
   },
+
+  async mounted() {
+    await this.loadQuotes();
+  },
+
+  methods: {
+    async loadQuotes() {
+      const response = await fetch(
+        "https://www.binance.com/api/v3/ticker/price"
+      );
+      const data = await response.json();
+      this.quotes = Object.keys(data).map((key) => {
+        return {
+          id: key,
+          name: data[key].symbol,
+          price: data[key].price,
+        };
+      });
+    },
+  },
 };
 </script>
 
