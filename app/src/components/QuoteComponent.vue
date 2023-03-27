@@ -6,14 +6,14 @@
         {{ quote.currentCourse }}
         $
       </li>
-      <li>difference</li>
+      <li>{{ initialCourse }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["quote"],
+  props: ["quote", "initialCourse"],
 };
 </script>
 

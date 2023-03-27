@@ -8,11 +8,11 @@ body {
   margin: 0 auto;
 }
 
-.rows ul:nth-child(odd) {
+.rows:nth-child(odd) {
   background-color: #1e1f26;
 }
 
-.rows ul:nth-child(even) {
+.rows:nth-child(even) {
   background-color: #16171c;
 }
 

@@ -1,16 +1,10 @@
 <template>
   <div class="container">
-    <!-- <div class="rows" v-for="quote in quotes" :key="quote.name">
-      <ul>
-        <li>{{ quote.name }}</li>
-        <li>{{ quote.price }}</li>
-        <li>difference</li>
-      </ul>
-    </div> -->
     <quote-component
       v-for="quote in quotes"
       :key="quote.name"
       :quote="quote"
+      :initialCourse="getInitialQuote(quote.name)"
     ></quote-component>
   </div>
 </template>
@@ -22,12 +16,13 @@ export default {
   data() {
     return {
       quotes: [],
+      quotesInitial: [],
     };
   },
 
   async mounted() {
-    await this.loadQuotes();
-    setInterval(this.loadQuotes, 5000);
+    await this.initialLoad();
+    setInterval(this.updateQuotes, 5000);
   },
 
   methods: {
@@ -36,13 +31,26 @@ export default {
         "https://www.binance.com/api/v3/ticker/price"
       );
       const data = await response.json();
-      this.quotes = Object.keys(data).map((key) => {
+      return Object.keys(data).map((key) => {
         return {
           id: key,
           name: data[key].symbol,
           currentCourse: data[key].price,
         };
       });
+    },
+    async initialLoad() {
+      this.quotesInitial = await this.loadQuotes();
+      this.quotes = this.quotesInitial;
+    },
+    async updateQuotes() {
+      this.quotes = await this.loadQuotes();
+    },
+    getInitialQuote(name) {
+      let initialQuote = this.quotesInitial.find((quote) => {
+        return quote.name === name;
+      });
+      return initialQuote.currentCourse;
     },
   },
   components: {
