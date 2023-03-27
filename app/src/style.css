@@ -9,7 +9,8 @@ body {
 }
 
 table {
-  width: 375px;
+  max-width: 375px;
+  width: 100%;
   margin: auto;
   color: #ffffff;
   font-family: 'Avenir Next';
