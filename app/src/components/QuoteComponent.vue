@@ -4,9 +4,7 @@
       <tr>
         <td>{{ quote.name }}</td>
         <td>{{ currentCourse }} $</td>
-        <td :style="{ color: difference < 0 ? '#FF3165' : '#78CBBB' }">
-          {{ difference }} %
-        </td>
+        <td :class="setColor">{{ difference }} %</td>
       </tr>
     </table>
   </div>
@@ -29,8 +27,22 @@ export default {
         return "0";
       }
     },
+    setColor() {
+      return {
+        pink: this.difference < 0,
+        green: this.difference >= 0,
+      };
+    },
   },
 };
 </script>
 
-<style></style>
+<style>
+.pink {
+  color: #ff3165;
+}
+
+.green {
+  color: #78cbbb;
+}
+</style>
