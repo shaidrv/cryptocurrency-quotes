@@ -8,27 +8,41 @@ body {
   margin: 0 auto;
 }
 
-.rows:nth-child(odd) {
-  background-color: #1e1f26;
-}
-
-.rows:nth-child(even) {
-  background-color: #16171c;
-}
-
-ul {
+table {
+  width: 375px;
+  margin: auto;
   color: #ffffff;
   font-family: 'Avenir Next';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.004em;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 8px 15px 8px 17px;
 }
 
-ul li {
-  list-style-type: none;
+table td:nth-child(1) {
+  width: 35%;
+  padding: 0 0 0 17px;
+}
+
+table td:nth-child(2) {
+  text-align: right;
+  width: 33%;
+}
+
+table td:nth-child(3) {
+  text-align: right;
+  width: 32%;
+  padding: 0 15px 0 0;
+}
+
+table td {
+  padding: 8px 0;
+}
+
+.rows:nth-child(odd) {
+  background-color: #1e1f26;
+}
+
+.rows:nth-child(even) {
+  background-color: #16171c;
 }

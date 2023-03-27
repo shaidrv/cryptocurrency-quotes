@@ -1,16 +1,14 @@
 <template>
   <div class="rows">
-    <ul>
-      <li>{{ quote.name }}</li>
-      <li>
-        {{ currentCourse }}
-        $
-      </li>
-      <li :style="{ color: difference < 0 ? '#FF3165' : '#78CBBB' }">
-        {{ difference }}
-        %
-      </li>
-    </ul>
+    <table>
+      <tr>
+        <td>{{ quote.name }}</td>
+        <td>{{ currentCourse }} $</td>
+        <td :style="{ color: difference < 0 ? '#FF3165' : '#78CBBB' }">
+          {{ difference }} %
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
