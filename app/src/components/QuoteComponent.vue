@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td>{{ quote.name }}</td>
-        <td>{{ currentCourse }} $</td>
+        <td>{{ currentRate }} $</td>
         <td :class="setColor">{{ difference }} %</td>
       </tr>
     </table>
@@ -12,15 +12,15 @@
 
 <script>
 export default {
-  props: ["quote", "initialCourse"],
+  props: ["quote"],
   computed: {
-    currentCourse() {
-      let current = +this.quote.currentCourse;
+    currentRate() {
+      let current = +this.quote.currentRate;
       return current > 1 ? current.toFixed(2) : current.toFixed(5);
     },
     difference() {
-      let current = this.quote.currentCourse;
-      let initial = this.initialCourse;
+      let current = this.quote.currentRate;
+      let initial = this.quote.initialRate;
       if (current !== initial) {
         return (((current - initial) / current) * 100).toFixed(2);
       } else {
